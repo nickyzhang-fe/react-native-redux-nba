@@ -3,13 +3,9 @@
  */
 
 export function timeout_fetch(fetch_promise, timeout = 15000) {
-    let timeout_fn = null;
-
     let timeout_promise = new Promise(function (resolve, reject) {
         setTimeout(function () {
-            timeout_fn = function () {
-                reject('timeout promise');
-            };
+            reject('timeout promise');
         }, timeout);
     });
 

@@ -3,8 +3,8 @@
  */
 
 import HttpUtils from './HttpUtils';
-const host = 'http://crm.dev';
-
+const host = 'http://sportsnba.qq.com/';
+const hosts = 'https://shequweb.sports.qq.com';
 /*
 * 登录
 * @params
