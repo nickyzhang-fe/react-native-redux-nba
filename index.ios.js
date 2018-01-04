@@ -15,9 +15,6 @@ import {Provider} from "react-redux";
 const store = configureStore();
 
 export default class NBAPlayer extends Component {
-    componentDidMount() {
-        console.log(1234567890);
-    }
     render() {
         return (
             <Provider store={store}>
