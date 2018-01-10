@@ -12,8 +12,7 @@ class HttpUtils {
         timeout_fetch(fetch(url, {
             method: 'GET',
             headers: {
-                "Content-Type": "application/json;charset=UTF-8",
-                "token": 'token'
+                "Content-Type": "application/json;charset=UTF-8"
             }
         }))
             .then((response) => response.text())
