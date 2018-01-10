@@ -12,9 +12,6 @@ import {
 } from "react-native";
 import Constant from './Constant';
 
-export const screenWidth = Dimensions.get("window").width;
-export const screenHeight = Dimensions.get("window").height;
-
 const styles = StyleSheet.create({
     flex: {
         flex: 1,

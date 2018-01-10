@@ -1,7 +1,11 @@
 /**
  * Created by Cral-Gates on 2018/1/3.
  */
-
+import {
+    Dimensions
+} from "react-native";
+const ScreenWidth = Dimensions.get("window").width;
+const ScreenHeight = Dimensions.get("window").height;
 /*
 * 颜色
 * */
@@ -72,5 +76,7 @@ export default {
     ...colors,
     ...size,
     ...string,
-    ...tabIcon
+    ...tabIcon,
+    ScreenWidth,
+    ScreenHeight
 }

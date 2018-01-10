@@ -11,6 +11,14 @@ import {
 // import HeaderBar from '../components/HeaderBar';
 import Style from '../common/Style';
 import Constant from '../common/Constant';
+import SwipePages from '../components/SwipePages';
+
+const swipePages = [
+    require('../assets/image/team/gsw.png'),
+    require('../assets/image/team/gsw.png'),
+    require('../assets/image/team/gsw.png'),
+    require('../assets/image/team/gsw.png')
+];
 
 class Game extends Component{
     constructor(props){
@@ -29,7 +37,11 @@ class Game extends Component{
     render(){
         return (
             <View style={Style.flex}>
-                <Text>{'测试数据'}</Text>
+                <SwipePages
+                    images={swipePages}
+                    height={200}
+                    loop={false}
+                    autoPlay={false}/>
             </View>
         )
     }
