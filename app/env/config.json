@@ -2,5 +2,6 @@
   "isMobilePlatform": true,
   "debug": true,
   "clearTable": true,
-  "url":"http://5ibinbin.com"
+  "blog":"http://5ibinbin.com",
+  "github":"https://github.com/5ibinbin/react-native-redux-nba"
 }

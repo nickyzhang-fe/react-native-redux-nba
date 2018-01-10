@@ -38,11 +38,16 @@ class Game extends Component {
     * 获取最近五天比赛情况
     * */
     async execute() {
-        await this.getMatchList(Common.formatDate(new Date().getTime() - 2*Constant.TimeStamp, 'yyyy-MM-dd'));
-        await this.getMatchList(Common.formatDate(new Date().getTime() - Constant.TimeStamp, 'yyyy-MM-dd'));
-        await this.getMatchList(this.state.date);
-        await this.getMatchList(Common.formatDate(new Date().getTime() + Constant.TimeStamp, 'yyyy-MM-dd'));
-        await this.getMatchList(Common.formatDate(new Date().getTime() + 2*Constant.TimeStamp, 'yyyy-MM-dd'));
+        try {
+            await this.getMatchList(Common.formatDate(new Date().getTime() - 2*Constant.TimeStamp, 'yyyy-MM-dd'));
+            await this.getMatchList(Common.formatDate(new Date().getTime() - Constant.TimeStamp, 'yyyy-MM-dd'));
+            await this.getMatchList(this.state.date);
+            await this.getMatchList(Common.formatDate(new Date().getTime() + Constant.TimeStamp, 'yyyy-MM-dd'));
+            await this.getMatchList(Common.formatDate(new Date().getTime() + 2*Constant.TimeStamp, 'yyyy-MM-dd'));
+        } catch (e) {
+            console.log(e);
+        }
+
     }
 
     static navigationOptions = ({navigation, screenProps}) => ({});

@@ -9,24 +9,20 @@ class HttpUtils {
      * @param callback1
      * @param callback2
      */
-    static fetchGetRequest(url, callback1, callback2) {
-        return new Promise(function (resolve, reject) {
-            timeout_fetch(fetch(url, {
-                method: 'GET',
-                headers: {
-                    "Content-Type": "application/json;charset=UTF-8"
-                }
-            }))
-                .then((response) => response.text())
-                .then((responseData) => {
-                    resolve(responseData);
-                    callback1(responseData);
-                })
-                .catch((err) => {
-                    reject(err);
-                    callback2(err);
-                });
-        })
+    static async fetchGetRequest(url, callback1, callback2) {
+        await timeout_fetch(fetch(url, {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json;charset=UTF-8"
+            }
+        }))
+            .then((response) => response.text())
+            .then((responseData) => {
+                callback1(responseData);
+            })
+            .catch((err) => {
+                callback2(err);
+            });
     }
 
     /**
