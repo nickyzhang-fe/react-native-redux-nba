@@ -1,7 +1,7 @@
 /**
  * Created by Cral-Gates on 2018/1/4.
  */
-import React ,{Component} from 'react';
+import React, {Component} from 'react';
 import {
     View,
     Text,
@@ -13,6 +13,7 @@ import Style from '../common/Style';
 import Constant from '../common/Constant';
 import SwipePages from '../components/SwipePages';
 import {GET_MATCH_LIST, GET_SHE_QU_LIST} from '../network/Api';
+import Common from '../utils/CommonUtil';
 
 const swipePages = [
     require('../assets/image/team/gsw.png'),
@@ -21,23 +22,32 @@ const swipePages = [
     require('../assets/image/team/gsw.png')
 ];
 
-class Game extends Component{
-    constructor(props){
+class Game extends Component {
+    constructor(props) {
         super(props);
         this.state = {
-            date: '2017-01-11'
+            date: Common.formatDate(new Date().getTime(), 'yyyy-MM-dd')
         }
     }
 
     componentDidMount() {
-        InteractionManager.runAfterInteractions(() => this.getMatchList())
+        InteractionManager.runAfterInteractions(() => this.execute());
     }
 
-    static navigationOptions = ({navigation,screenProps}) => ({
+    /*
+    * 获取最近五天比赛情况
+    * */
+    async execute() {
+        await this.getMatchList(Common.formatDate(new Date().getTime() - 2*Constant.TimeStamp, 'yyyy-MM-dd'));
+        await this.getMatchList(Common.formatDate(new Date().getTime() - Constant.TimeStamp, 'yyyy-MM-dd'));
+        await this.getMatchList(this.state.date);
+        await this.getMatchList(Common.formatDate(new Date().getTime() + Constant.TimeStamp, 'yyyy-MM-dd'));
+        await this.getMatchList(Common.formatDate(new Date().getTime() + 2*Constant.TimeStamp, 'yyyy-MM-dd'));
+    }
 
-    });
+    static navigationOptions = ({navigation, screenProps}) => ({});
 
-    render(){
+    render() {
         return (
             <View style={Style.flex}>
                 <SwipePages
@@ -49,15 +59,16 @@ class Game extends Component{
         )
     }
 
-    getMatchList = () => {
-        GET_MATCH_LIST(this.state.date, function (res) {
-            console.log(res);
-        })
+    getMatchList = async (date) => {
+        let that = this;
+        await GET_MATCH_LIST(date, function (res) {
+            console.log(date);
+        }, function (err) {
+            console.log(err);
+        });
     }
 }
 
-const styles = StyleSheet.create({
-
-});
+const styles = StyleSheet.create({});
 
 export default Game;

@@ -6,6 +6,7 @@ import {
 } from "react-native";
 const ScreenWidth = Dimensions.get("window").width;
 const ScreenHeight = Dimensions.get("window").height;
+const TimeStamp = 1000*60*60*24;
 /*
 * 颜色
 * */
@@ -78,5 +79,6 @@ export default {
     ...string,
     ...tabIcon,
     ScreenWidth,
-    ScreenHeight
+    ScreenHeight,
+    TimeStamp
 }
