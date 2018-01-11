@@ -33,9 +33,9 @@ class Game extends Component {
     componentDidMount() {
         InteractionManager.runAfterInteractions(() => this.execute());
     }
-
     /*
     * 获取最近五天比赛情况
+    * try-catch防止某个调用失败导致所有的失败
     * */
     async execute() {
         try {
