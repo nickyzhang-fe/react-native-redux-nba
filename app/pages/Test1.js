@@ -23,7 +23,9 @@ class Setting extends Component {
 
     }
 
-    static navigationOptions = ({navigation, screenProps}) => ({});
+    static navigationOptions = ({navigation, screenProps}) => ({
+
+    });
 
     render() {
         return (

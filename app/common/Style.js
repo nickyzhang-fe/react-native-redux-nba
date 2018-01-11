@@ -25,7 +25,9 @@ const styles = StyleSheet.create({
         flexDirection: "column"
     },
     headerStyle: {
-        backgroundColor: Constant.THEME_COLOR
+        backgroundColor: Constant.THEME_COLOR,
+        borderBottomWidth: 0,
+        ...Platform.OS === 'android' ? { paddingTop: StatusBar.currentHeight, height: StatusBar.currentHeight + 44 } : {}
     },
     headerTitleStyle:{
         fontSize:Constant.LARGE_TEXT_SIZE,

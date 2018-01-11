@@ -16,7 +16,7 @@ import {
 import Game from './containers/Game';
 import New from './containers/New';
 import BBS from './containers/BBS';
-import More from './containers/More';
+import Data from './containers/Data';
 import Styles from './common/Style';
 import Constant from './common/Constant';
 
@@ -63,8 +63,8 @@ const Tab = TabNavigator({
             ),
         }
     },
-    More: {
-        screen: More,
+    Data: {
+        screen: Data,
         navigationOptions: {
             headerTitle: Constant.TAB_MORE_TXT,
             headerStyle: Styles.headerStyle,
@@ -80,28 +80,30 @@ const Tab = TabNavigator({
 }, {
     tabBarPosition: 'bottom',
     animationEnabled: false,
-    swipeEnabled: true,
+    swipeEnabled: false,
     // backBehavior: "none",
     tabBarOptions: {
+        mode: 'card',
         upperCaseLabel: false,
         showIcon: true,
         showLabel: false,
         activeTintColor: Constant.THEME_COLOR,
-        inactiveTintColor: 'gray',
+        inactiveTintColor: Constant.PRIMARY_TEXT_COLOR,
+        tabStyle: {
+            height: 55,  //防止Android上图片溢出
+        },
         style: {
-            backgroundColor: 'white',
+            backgroundColor: Constant.WHITE,
             height: 55,
+            // borderTopWidth: 24,
+            // borderTopColor: 'red', // StatusBar color
+            borderTopColor: Constant.THEME_COLOR, //设置tab上面的颜色
         },
         indicatorStyle: {
-            height: 0,
-        },
-        labelStyle: {
-            fontSize: 12,
-            marginTop: -3,
-            marginBottom: 5,
+            height:0,
         },
         iconStyle: {
-            marginBottom: 5
+            height: 55
         }
     }
 });

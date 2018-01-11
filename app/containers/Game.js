@@ -5,10 +5,10 @@ import React, {Component} from 'react';
 import {
     View,
     Text,
+    StatusBar,
     StyleSheet,
     InteractionManager
 } from 'react-native';
-// import HeaderBar from '../components/HeaderBar';
 import Style from '../common/Style';
 import Constant from '../common/Constant';
 import SwipePages from '../components/SwipePages';
@@ -55,6 +55,10 @@ class Game extends Component {
     render() {
         return (
             <View style={Style.flex}>
+                <StatusBar
+                    backgroundColor={'transparent'}
+                    translucent
+                />
                 <SwipePages
                     images={swipePages}
                     height={200}

@@ -8,7 +8,8 @@ import {
     Image,
     Text,
     StyleSheet,
-    TouchableOpacity
+    TouchableOpacity,
+    Platform
 } from 'react-native';
 import Constant from '../common/Constant';
 
@@ -19,7 +20,6 @@ class ImageButton extends Component {
 
     render() {
         const {click, image, title, direction, height, width, color, fontSize} = this.props;
-        console.log(image);
         return (
             <TouchableOpacity onPress={click}>
                 <View style={[styles.container, {height: height, width: width, flexDirection: direction}]}>
@@ -57,7 +57,8 @@ const styles = StyleSheet.create({
     image: {
         height: 40,
         width: 40,
-        borderRadius: 20
+        borderRadius: 40,
+        ...Platform.select({ios: {borderRadius:20}})
     },
     title: {
         backgroundColor: 'transparent',
