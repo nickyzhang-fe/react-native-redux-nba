@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import Style from '../common/Style';
 import Constant from '../common/Constant';
-import SwipePages from '../components/SwipePages';
+import Swipe from '../components/Swipe';
 import {GET_MATCH_LIST, GET_SHE_QU_LIST} from '../network/Api';
 import Common from '../utils/CommonUtil';
 
@@ -57,9 +57,8 @@ class Game extends Component {
             <View style={Style.flex}>
                 <StatusBar
                     backgroundColor={'transparent'}
-                    translucent
-                />
-                <SwipePages
+                    translucent/>
+                <Swipe
                     images={swipePages}
                     height={200}
                     loop={false}

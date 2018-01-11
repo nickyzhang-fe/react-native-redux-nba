@@ -12,57 +12,35 @@ import {
 import {TabNavigator} from "react-navigation";
 import Style from '../common/Style';
 import Constant from '../common/Constant';
-import Test1 from '../pages/Test1';
-import Test2 from '../pages/Test2';
-
-class More extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    componentDidMount() {
-
-    }
-
-    static navigationOptions = ({navigation, screenProps}) => ({});
-
-    render() {
-        return (
-            <View style={Style.flex}>
-                <Text>{'测试数据'}</Text>
-            </View>
-        )
-    }
-}
+import RankPages from '../pages/RankListPages';
+import DayPages from '../pages/DayListPages';
+import PlayerPages from '../pages/PlayerListPages';
+import TeamPages from '../pages/TeamListPages';
 
 const Tab = TabNavigator({
-    Test1: {
-        screen: Test1,
+    RankPages: {
+        screen: RankPages,
         navigationOptions: {
-            // header: null,
             headerStyle: {},
-            // headerTitleStyle: Styles.headerTitleStyle,
-            tabBarLabel: "比赛",
-            // tabBarIcon: ({tintColor, focused}) => (
-            //     <Image
-            //         source={focused ? Constant.GAME_DOWN: Constant.GAME_UP}
-            //         style={[styles.icon]}/>
-            // ),
+            tabBarLabel: "球队排行",
         },
     },
-    Test2: {
-        screen: Test2,
+    DayPages: {
+        screen: DayPages,
         navigationOptions: {
-            // header: null,
-            // headerTitle: Constant.TAB_NEW_TXT,
-            // headerStyle: Styles.headerStyle,
-            // headerTitleStyle: Styles.headerTitleStyle,
-            tabBarLabel: "新闻",
-            // tabBarIcon: ({tintColor, focused}) => (
-            //     <Image
-            //         source={focused ? Constant.NEW_DOWN : Constant.NEW_UP}
-            //         style={[styles.icon, {tintColor: tintColor}]}/>
-            // ),
+            tabBarLabel: "每日榜单",
+        }
+    },
+    PlayerPages: {
+        screen: PlayerPages,
+        navigationOptions: {
+            tabBarLabel: "球员榜单",
+        }
+    },
+    TeamPages: {
+        screen: TeamPages,
+        navigationOptions: {
+            tabBarLabel: "球队榜单",
         }
     }
 }, {
@@ -94,14 +72,6 @@ const Tab = TabNavigator({
             ...Platform.select({ios: {height: 32}, android: {height: 50}})
         },
         iconStyle: {}
-    }
-});
-
-const styles = StyleSheet.create({
-    icon: {
-        height: Constant.BIG_ICON_SIZE,
-        width: Constant.BIG_ICON_SIZE,
-        // ...Platform.select({ios: {marginTop: -5}})
     }
 });
 
