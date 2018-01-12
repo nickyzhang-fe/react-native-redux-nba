@@ -16,5 +16,8 @@
 - `clone`代码，执行`npm install`安装依赖库(`node_modules`)
 - `react-native run-ios/android`
 -  `./gradlew assembleRelease` `Android`打包。执行此命令前需先配置
--  `react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/` 生成 `index.android.bundle`和`index.android.bundle.meta`文件
 
+### 组件
+
+- `react-native-swiper`
+- `react-navigation`
