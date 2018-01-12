@@ -2,10 +2,10 @@
  * Created by Cral-Gates on 2017/01/04.
  */
 import {combineReducers} from 'redux';
-import newsReducers from './newsReducers';
+import GameReducer from './Game';
 
 const rootReducers = combineReducers({
-    newsReducers
+    GameReducer
 });
 
 export default rootReducers;

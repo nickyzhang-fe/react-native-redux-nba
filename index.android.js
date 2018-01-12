@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import App from './app/App';
+import root from './app/root';
 
-AppRegistry.registerComponent('NBAPlayer', () => App);
+AppRegistry.registerComponent('NBAPlayer', () => root);

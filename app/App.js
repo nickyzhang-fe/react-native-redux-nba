@@ -97,7 +97,7 @@ const Tab = TabNavigator({
             height: 55,
             // borderTopWidth: 24,
             // borderTopColor: 'red', // StatusBar color
-            borderTopColor: Constant.THEME_COLOR, //设置tab上面的颜色
+            borderTopColor: Constant.THEME_COLOR, //设置tab上面的颜色(ios)
         },
         indicatorStyle: {
             height:0,
@@ -108,7 +108,7 @@ const Tab = TabNavigator({
     }
 });
 
-export default  MyApp = StackNavigator({
+export default MyApp = StackNavigator({
     Tab:{
         screen:Tab,
     }

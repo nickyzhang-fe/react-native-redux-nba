@@ -14,6 +14,8 @@ import Constant from '../common/Constant';
 import Swipe from '../components/Swipe';
 import {GET_MATCH_LIST, GET_SHE_QU_LIST} from '../network/Api';
 import Common from '../utils/CommonUtil';
+import {connect} from "react-redux";
+import {getMatchList} from '../actions/Game';
 
 const swipePages = [
     require('../assets/image/team/gsw.png'),
@@ -33,17 +35,20 @@ class Game extends Component {
     componentDidMount() {
         InteractionManager.runAfterInteractions(() => this.execute());
     }
+
     /*
-    * 获取最近五天比赛情况
-    * try-catch防止某个调用失败导致所有的失败
-    * */
+     * 获取最近五天比赛情况
+     * try-catch防止某个调用失败导致所有的失败
+     * */
     async execute() {
+        const {navigator, dispatch} = this.props;
         try {
-            await this.getMatchList(Common.formatDate(new Date().getTime() - 2*Constant.TimeStamp, 'yyyy-MM-dd'));
-            await this.getMatchList(Common.formatDate(new Date().getTime() - Constant.TimeStamp, 'yyyy-MM-dd'));
-            await this.getMatchList(this.state.date);
-            await this.getMatchList(Common.formatDate(new Date().getTime() + Constant.TimeStamp, 'yyyy-MM-dd'));
-            await this.getMatchList(Common.formatDate(new Date().getTime() + 2*Constant.TimeStamp, 'yyyy-MM-dd'));
+            await dispatch(getMatchList(Common.formatDate(new Date().getTime() - 2 * Constant.TimeStamp, 'yyyy-MM-dd')));
+            // await this.getMatchList(Common.formatDate(new Date().getTime() - 2 * Constant.TimeStamp, 'yyyy-MM-dd'));
+            // await this.getMatchList(Common.formatDate(new Date().getTime() - Constant.TimeStamp, 'yyyy-MM-dd'));
+            // await this.getMatchList(this.state.date);
+            // await this.getMatchList(Common.formatDate(new Date().getTime() + Constant.TimeStamp, 'yyyy-MM-dd'));
+            // await this.getMatchList(Common.formatDate(new Date().getTime() + 2 * Constant.TimeStamp, 'yyyy-MM-dd'));
         } catch (e) {
             console.log(e);
         }
@@ -79,4 +84,11 @@ class Game extends Component {
 
 const styles = StyleSheet.create({});
 
-export default Game;
+function mapStateToProps(state) {
+    const {Game} = state;
+    return {
+        Game
+    }
+}
+
+export default connect(mapStateToProps)(Game);
