@@ -44,11 +44,10 @@ class Game extends Component {
         const {navigator, dispatch} = this.props;
         try {
             await dispatch(getMatchList(Common.formatDate(new Date().getTime() - 2 * Constant.TimeStamp, 'yyyy-MM-dd')));
-            // await this.getMatchList(Common.formatDate(new Date().getTime() - 2 * Constant.TimeStamp, 'yyyy-MM-dd'));
-            // await this.getMatchList(Common.formatDate(new Date().getTime() - Constant.TimeStamp, 'yyyy-MM-dd'));
-            // await this.getMatchList(this.state.date);
-            // await this.getMatchList(Common.formatDate(new Date().getTime() + Constant.TimeStamp, 'yyyy-MM-dd'));
-            // await this.getMatchList(Common.formatDate(new Date().getTime() + 2 * Constant.TimeStamp, 'yyyy-MM-dd'));
+            await dispatch(getMatchList(Common.formatDate(new Date().getTime() - 1 * Constant.TimeStamp, 'yyyy-MM-dd')));
+            await dispatch(getMatchList(Common.formatDate(new Date().getTime())));
+            await dispatch(getMatchList(Common.formatDate(new Date().getTime() + 1 * Constant.TimeStamp, 'yyyy-MM-dd')));
+            await dispatch(getMatchList(Common.formatDate(new Date().getTime() + 2 * Constant.TimeStamp, 'yyyy-MM-dd')));
         } catch (e) {
             console.log(e);
         }
@@ -85,9 +84,10 @@ class Game extends Component {
 const styles = StyleSheet.create({});
 
 function mapStateToProps(state) {
-    const {Game} = state;
+    const {GameReducer} = state;
+    // console.log(GameReducer[1]);
     return {
-        Game
+        GameReducer
     }
 }
 

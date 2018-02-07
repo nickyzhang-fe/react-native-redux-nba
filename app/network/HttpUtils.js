@@ -6,10 +6,9 @@ import {timeout_fetch} from './FetchTimeout';
 class HttpUtils {
     /**
      * @param {string} url 接口地址
-     * @param callback1
-     * @param callback2
+     * @param callback
      */
-    static async fetchGetRequest(url, callback1, callback2) {
+    static async fetchGetRequest(url, callback) {
         await timeout_fetch(fetch(url, {
             method: 'GET',
             headers: {
@@ -18,10 +17,10 @@ class HttpUtils {
         }))
             .then((response) => response.text())
             .then((responseData) => {
-                callback1(responseData);
+                callback(responseData);
             })
             .catch((err) => {
-                callback2(err);
+                callback(err);
             });
     }
 
